@@ -1,24 +1,34 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:v-bind="http://www.w3.org/1999/xhtml">
 <head>
   <meta charset="utf-8">
   <title>hello vue.js</title>
-  <script src="https://unpkg.com/vue"></script>
+  <!--<script src="https://unpkg.com/vue"></script>-->
+  <script src="./vue.js"></script>
 </head>
 <body>
-  <div id="simple">
-    {{ message }}
-    <h2 v-text="message"></h2>
+  <div id="example">
+    <select id="regions">
+      <option disabled="disabled" selected>지역을 선택하세요</option>
+      <option v-for="(val, key) in regions" v-bind:value="key">{{val}}</option>
+    </select>
   </div>
+
   <script type="text/javascript">
-    const model = {
-        message: '첫 번째 Vue.js 앱입니다.'
+    const regions = {
+        "A" : "Asia",
+        "B" : "America",
+        "C" : "Europe",
+        "D" : "Africa",
+        "E" : "Oceania"
     };
 
-    const simple = new Vue({
-        el: '#simple',
-        data: model
-    })
+    const list = new Vue({
+       el: '#example',
+       data: {
+           regions : regions
+       }
+    });
   </script>
 </body>
 </html>
