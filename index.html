@@ -2,32 +2,49 @@
 <html xmlns:v-bind="http://www.w3.org/1999/xhtml">
 <head>
   <meta charset="utf-8">
-  <title>hello vue.js</title>
+  <title>02-11</title>
   <!--<script src="https://unpkg.com/vue"></script>-->
+
+  <style>
+    #list {
+      width: 400px;
+      border: 1px solid black;
+      border-collapse: collapse;
+    }
+    #list td, #list th {
+      border: 1px solid black;
+      text-align: center;
+    }
+    #list > thead > tr {
+      color: yellow;
+      background-color: purple;
+    }
+  </style>
+
   <script src="./vue.js"></script>
 </head>
 <body>
   <div id="example">
-    <select id="regions">
-      <option disabled="disabled" selected>지역을 선택하세요</option>
-      <option v-for="(val, key) in regions" v-bind:value="key">{{val}}</option>
-    </select>
+    <p>
+      국가명 : <input type="text" placeholder="국가명" />
+    </p>
+    <table id="list">
+      <thead>
+        <tr>
+          <th>번호</th><th>국가명</th><th>수도</th><th>지역</th>
+        </tr>
+      </thead>
+      <tbody id="contacts">
+
+      </tbody>
+    </table>
   </div>
 
   <script type="text/javascript">
-    const regions = {
-        "A" : "Asia",
-        "B" : "America",
-        "C" : "Europe",
-        "D" : "Africa",
-        "E" : "Oceania"
-    };
+    //1 부터 입력된 수까지의 합구하기
+    const vmSum = new Vue({
+       el: "#example",
 
-    const list = new Vue({
-       el: '#example',
-       data: {
-           regions : regions
-       }
     });
   </script>
 </body>
