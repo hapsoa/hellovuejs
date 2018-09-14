@@ -41,10 +41,28 @@
   </div>
 
   <script type="text/javascript">
-    //1 부터 입력된 수까지의 합구하기
-    const vmSum = new Vue({
-       el: "#example",
+    const model = {
+        countryname: "",
+        countries: [
+            { no:1, name: "미국", capital: "워싱턴DC", region:"america" },
+            { no:2, name: "프랑스", capital: "파리", region: "europe"}
+        ]
+    };
 
+    const clist = new Vue({
+        el: '#example',
+        data: model,
+        computed: {
+            filtered: function() {
+                const cname = this.countryname.trim();
+                return this.countries.filter(function(item, index) {
+                    if (item.name.indexOf(cname) > -1) {
+                        return true;
+                    }
+                })
+            }
+
+        }
     });
   </script>
 </body>
