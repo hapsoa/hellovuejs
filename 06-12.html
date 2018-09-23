@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:v-on="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>04-11</title>
+    <script src="https://unpkg.com/vue"></script>
+
+    <style>
+
+    </style>
+</head>
+<template id="listTemplate">
+    <li>{{ myMessage }}</li>
+</template>
+<script type="text/javascript">
+    Vue.component('list-component', {
+        template: '#listTemplate',
+        props: ['myMessage']
+    })
+</script>
+
+<body>
+<div id="app">
+    <ul>
+        <list-component my-message="Hello"></list-component>
+        <list-component my-message="씬짜오"></list-component>
+        <list-component my-message="니하오마"></list-component>
+    </ul>
+</div>
+<script type="text/javascript">
+    Vue.config.devtools = true;
+    const vm = new Vue({
+        el: "#app",
+    });
+</script>
+</body>
+</html>

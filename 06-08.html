@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:v-on="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>04-11</title>
+    <script src="https://unpkg.com/vue"></script>
+
+    <style>
+
+    </style>
+</head>
+<script type="text/javascript">
+    Vue.component('option-component', {
+        template: '<option>hello</option>'
+    });
+</script>
+<script type="text/x-template" id="selectTemplate">
+    <select>
+        <option is="option-component"></option>
+        <option is="option-component"></option>
+    </select>
+</script>
+<script type="text/javascript">
+    Vue.component('select-component', {
+        template: '#selectTemplate'
+    })
+</script>
+
+<body>
+<div id="app">
+    <select-component></select-component>
+</div>
+<script type="text/javascript">
+    Vue.config.devtools = true;
+
+    const vm = new Vue({
+        el: "#app",
+    });
+</script>
+</body>
+</html>

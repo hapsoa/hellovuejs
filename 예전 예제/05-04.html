@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:v-on="http://www.w3.org/1999/xhtml" xmlns:v-bind="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>04-11</title>
+    <script src="https://unpkg.com/vue"></script>
+
+    <style>
+
+    </style>
+</head>
+    <div id="example">
+        <button id="btn1" v-bind:style="[myColor, myLayout]">버튼1</button>
+    </div>
+<script type="text/javascript">
+    const vm = new Vue({
+        el: "#example",
+        data: {
+            myColor: {
+                backgroundColor: 'purple',
+                color: 'yellow'
+            },
+            myLayout: {
+                width: '150px',
+                height: '80px',
+                textAlign: 'center'
+            }
+        }
+
+    });
+</script>
+<body>
+
+</body>
+</html>
